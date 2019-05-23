@@ -27,10 +27,12 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'react-rails', '~> 2.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
 end
 
 group :development do
@@ -69,3 +71,5 @@ gem 'omniauth-twitter', '~> 1.4'
 gem 'sidekiq', '~> 5.2', '>= 5.2.5'
 gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
 gem 'whenever', require: false
+gem 'faker', '~> 1.9', '>= 1.9.3'
+gem 'graphql', '~> 1.9', '>= 1.9.5'
