@@ -74,3 +74,4 @@ gem 'whenever', require: false
 gem 'faker', '~> 1.9', '>= 1.9.3'
 gem 'graphql', '~> 1.9', '>= 1.9.5'
 gem 'graphiql-rails', group: :development
+gem 'travis', '~> 1.8', '>= 1.8.10'
