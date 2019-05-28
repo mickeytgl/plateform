@@ -2,11 +2,8 @@ services:
   - postgresql
 addons:
   postgresql: "11.3"
-env:
-  global:
-    - PGPORT=5432
 before_script:
-  - psql -c 'create database plateform_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
 language: ruby
 rvm:
   - 2.6.2
