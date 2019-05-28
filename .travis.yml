@@ -2,6 +2,6 @@ language: ruby
 rvm:
   — 2.6.2
 script:
-  — bundle exec rake db:create
-  - bundle exec rails db:migrate RAILS_ENV=test
-  - bundle exec rspec
+  — rails db:create
+  - rails db:migrate RAILS_ENV=test
+  - rails spec
