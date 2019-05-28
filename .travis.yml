@@ -2,8 +2,6 @@ services:
   - postgresql
 addons:
   postgresql: "11.3"
-before_script:
-  - cp config/database.yml.travis config/database.yml
 language: ruby
 rvm:
   - 2.6.2
