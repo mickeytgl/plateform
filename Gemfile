@@ -73,3 +73,4 @@ gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
 gem 'whenever', require: false
 gem 'faker', '~> 1.9', '>= 1.9.3'
 gem 'graphql', '~> 1.9', '>= 1.9.5'
+gem 'graphiql-rails', group: :development
