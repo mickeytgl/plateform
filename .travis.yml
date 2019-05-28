@@ -1,5 +1,14 @@
 addons:
   postgresql: "11.3"
+  apt:
+    packages:
+      - postgresql-11.3
+      - postgresql-client-11.3
+env:
+  global:
+    - PGPORT=5433
+before_script:
+  - psql -c 'create database plateform_test;' -U postgres
 language: ruby
 rvm:
   - 2.6.2
