@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_181531) do
+ActiveRecord::Schema.define(version: 2019_05_31_215203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,14 @@ ActiveRecord::Schema.define(version: 2019_05_22_181531) do
     t.string "title"
     t.string "description"
     t.bigint "user_id", null: false
+    t.bigint "guests_id"
     t.integer "guest_capacity"
     t.integer "cost_per_guest"
+    t.datetime "time_and_date"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["guests_id"], name: "index_dinners_on_guests_id"
     t.index ["user_id"], name: "index_dinners_on_user_id"
   end
 
@@ -44,6 +48,15 @@ ActiveRecord::Schema.define(version: 2019_05_22_181531) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "dinner_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dinner_id"], name: "index_guests_on_dinner_id"
+    t.index ["user_id"], name: "index_guests_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -88,5 +101,7 @@ ActiveRecord::Schema.define(version: 2019_05_22_181531) do
   end
 
   add_foreign_key "dinners", "users"
+  add_foreign_key "guests", "dinners"
+  add_foreign_key "guests", "users"
   add_foreign_key "services", "users"
 end
