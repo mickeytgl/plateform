@@ -14,7 +14,7 @@ User.create(
   admin: true,
 )
 
-5.times do 
+10.times do 
   User.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -27,8 +27,15 @@ end
   Dinner.create(
     title: Faker::Food.dish,
     description: Faker::Food.description,
-    user: User.find(rand(1..5)),
+    owner: User.find(rand(1..5)),
     guest_capacity: rand(1..10),
     cost_per_guest: rand(50..300)
+  )
+end
+
+30.times do 
+  Guest.create(
+    user: User.find(rand(1..10)),
+    dinner: Dinner.find(rand(1..10))
   )
 end
